@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width-device-width, initial-scale 1.0">
+    <title>DIGITAL CLOCK </title>
+    <link rel="stylesheet" href="./css/clock.css">
+</head>
+
+<body  onload="startTime()">
+    <div class="link">
+        <div class="container">
+            <div class="clock">
+                <span id="hrs">00</span>
+                <span>:</span>
+                <span id="min">00</span>
+                <span>:</span>
+                <span id="sec">00</span>
+            </div>
+        </div>
+</body>
+
+<script>
+    function startTime() {
+        const today = new Date();
+        let h = today.getHours();
+        let m = today.getMinutes();
+        let s = today.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
+        document.getElementById('hrs').innerHTML = h;
+        document.getElementById('min').innerHTML = m;
+        document.getElementById('sec').innerHTML = s;
+        setTimeout(startTime, 1000);
+    }
+
+    function checkTime(i) {
+        if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+        return i;
+    }
+</script>
+
+</html>
